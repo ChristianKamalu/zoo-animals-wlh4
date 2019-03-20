@@ -12,6 +12,7 @@ app.use(express.json())
 app.get('/api/animals', AnimalsCtrl.get)
 app.post('/api/animals', AnimalsCtrl.create)
 app.put('/api/animals/:id', AnimalsCtrl.update)
+app.delete('/api/animals/:id', AnimalsCtrl.delete)
 
 app.listen(port, () => {
   console.log('listening on port', port)

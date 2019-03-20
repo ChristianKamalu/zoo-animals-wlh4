@@ -47,5 +47,13 @@ module.exports = {
 
     animals.splice(index, 1, updatedAnimal)
     res.send(animals)
+  },
+
+  delete: (req, res) => {
+    let { id } = req.params
+
+    let index = animals.findIndex(animal => Number(animal.id) === Number(id))
+    animals.splice(index, 1)
+    res.send(animals)
   }
 }

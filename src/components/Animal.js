@@ -34,6 +34,13 @@ class Animal extends Component {
     })
   }
 
+  handleDeleteClick = () => {
+    this.props.deleteAnimal(this.state.id)
+    this.setState({
+      edit: false
+    })
+  }
+
   render() {
     return this.state.edit ? (
       <div>
@@ -41,6 +48,7 @@ class Animal extends Component {
         <input type="text" name="imageUrl" value={this.state.imageUrl} onChange={this.handleChange}/>
         <input type="number" name="quantity" value={this.state.quantity} onChange={this.handleChange}/>
         <button onClick={this.handleUpdateClick}>update animal</button>
+        <button onClick={this.handleDeleteClick}>delete animal</button>
       </div>
     ) : (
       <div>

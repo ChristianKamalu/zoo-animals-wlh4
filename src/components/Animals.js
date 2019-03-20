@@ -38,7 +38,10 @@ class Animals extends Component {
           <button onClick={this.handleClick}>create animal</button>
         </div>
         {this.props.animals.map(animal => {
-          return <Animal key={animal.id} animal={animal} updateAnimal={this.props.updateAnimal}/>
+          return <Animal 
+                    key={animal.id} animal={animal} 
+                    updateAnimal={this.props.updateAnimal}
+                    deleteAnimal={this.props.deleteAnimal} />
         })}
       </div>
     )

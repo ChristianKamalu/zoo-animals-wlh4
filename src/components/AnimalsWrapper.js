@@ -30,6 +30,14 @@ class AnimalsWrapper extends Component {
     })
   }
 
+  deleteAnimal = id => {
+    axios.delete(`/api/animals/${id}`).then(res => {
+      this.setState({
+        animals: res.data
+      })
+    }).catch(err => console.log('there was an error.', err))
+  }
+
   componentDidMount() {
     axios.get('/api/animals').then(res => {
       this.setState({
@@ -46,7 +54,8 @@ class AnimalsWrapper extends Component {
         <Animals 
           animals={this.state.animals} 
           handleCreateAnimal={this.createAnimal} 
-          updateAnimal={this.updateAnimal}/>
+          updateAnimal={this.updateAnimal}
+          deleteAnimal={this.deleteAnimal}/>
       </div>
     )
   }
